@@ -52,6 +52,12 @@ namespace WhoOwesWhoMoney
             {
                 Debug.WriteLine("Wybrany obiekt " + listView.SelectedItem.ToString());
                 Debug.WriteLine("Index obiektu " + listView.SelectedIndex.ToString());
+                if (listView.SelectedIndex == 0)
+                {
+                    //FormDodajNowe nowe = new FormDodajNowe();
+                    //nowe.
+                    this.Frame.Navigate(typeof(FormDodajNowe));
+                }
             }
             else
                 Debug.WriteLine("Nie wybrano obiektu");
