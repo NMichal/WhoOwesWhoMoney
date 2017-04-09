@@ -28,7 +28,7 @@ namespace WhoOwesWhoMoney
         {
             this.InitializeComponent();
 
-            ApplicationView.PreferredLaunchViewSize = new Size(400, 800);
+            ApplicationView.PreferredLaunchViewSize = new Size(500, 800);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
             wyswietlKategorie();

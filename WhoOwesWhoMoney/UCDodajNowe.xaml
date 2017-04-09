@@ -9,7 +9,23 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    <Grid Margin="0,0,-139,-62">
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="191,10,0,0" Width="202"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Data" Margin="10,10,0,270" Width="176"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Data oddania" Margin="10,49,0,231" Width="176"/>
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="191,47,0,0" Width="202"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kto" Margin="10,85,0,252" Width="176"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Miejsce" Margin="10,122,0,208" Width="176"/>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Za co" Margin="10,160,0,172" Width="176"/>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kwota" Margin="10,197,0,138" Width="176"/>
+        <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email" Margin="10,234,0,103" Width="176"/>
+        <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dodatkowe informacje" Margin="10,271,0,66" Width="176"/>
+        <TextBox x:Name="textBoxDodatkoweInfo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="191,271,0,0" Height="80" Width="296"/>
+        <TextBox x:Name="textBoxZaCo" HorizontalAlignment="Left" Margin="191,160,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="296"/>
+        <TextBox x:Name="textBoxMiejsce" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Margin="191,122,0,0" Width="296" Height="27"/>
+        <TextBox x:Name="textBoxKto" HorizontalAlignment="Left" Margin="191,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="296" Height="21"/>
+        <TextBox x:Name="textBoxKwota" HorizontalAlignment="Left" Margin="191,197,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="296"/>
+        <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Margin="191,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="296"/>
 
     </Grid>
 </UserControl>
