@@ -52,9 +52,22 @@ namespace WhoOwesWhoMoney
 
         private async void buttonZapisz_Click(object sender, RoutedEventArgs e)
         {
-            UCDodajNowe1.Zapis();
-            var dialog = new MessageDialog("Dane zapisano pomyślnie.");
-            await dialog.ShowAsync();
+            if (UCDodajNowe1.Zapis())
+            {
+                var dialog = new MessageDialog("Dane zapisano pomyślnie.");
+                await dialog.ShowAsync();
+                this.Frame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                var dialog = new MessageDialog("Uzupełnij brakujące dane.");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void buttonAnuluj_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

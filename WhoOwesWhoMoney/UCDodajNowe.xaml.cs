@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,11 +32,11 @@ namespace WhoOwesWhoMoney
         {
             textBoxDodatkoweInfo.PlaceholderText = "Wpisz dodatkowe informacje... \n(opcjonalne)";
             textBoxKwota.PlaceholderText = "Podaj kwotę...";
-            textBoxMiejsce.PlaceholderText = "Miejsce ... (opcjonalne)";
-            textBoxZaCo.PlaceholderText = "Opis za co ...";
+            textBoxMiejsce.PlaceholderText = "Miejsce... (opcjonalne)";
+            textBoxZaCo.PlaceholderText = "Opis za co...";
             DataOddania.PlaceholderText = "(opcjonalne)";
             Data.Date = DateTime.Now;
-            
+
         }
 
 
@@ -52,33 +53,66 @@ namespace WhoOwesWhoMoney
         }
 
 
-
-        internal void Zapis()
+        private bool ValidateData()
         {
-            StringBuilder dane = new StringBuilder();
-            dane.Append(GlobalVariables.ID.ToString()); //to bedzie OID
-            dane.Append(';');
-            dane.Append(Data.Date.ToString());
-            dane.Append(';');
-            dane.Append(DataOddania.Date.ToString());
-            dane.Append(';');
-            dane.Append(textBoxKto.Text);
-            dane.Append(';');
-            dane.Append(textBoxMiejsce.Text);
-            dane.Append(';');
-            dane.Append(textBoxZaCo.Text);
-            dane.Append(';');
-            dane.Append(textBoxKwota.Text);
-            dane.Append(';');
-            dane.Append(textBoxEmail.Text);
-            dane.Append(';');
-            dane.Append(textBoxDodatkoweInfo.Text);
-            dane.Append(';');
-            dane.Append("1"); // Status czy aktywne, przy dodawaniu zawsze bedzie 1
-            dane.Append('\n');
-            GlobalVariables.ZapiszDoPliku(dane.ToString());
-            GlobalVariables.PodniesID();
-            
+            if (textBoxKto.Text == null || textBoxKto.Text == "")
+                return true;
+            if (textBoxZaCo.Text == null || textBoxZaCo.Text == "")
+                return true;
+            if (textBoxKwota.Text == null || textBoxKwota.Text == "")
+                return true;
+                     
+            return false;
+        }
+        internal bool Zapis()
+        {
+            if (!ValidateData())
+            {
+                StringBuilder dane = new StringBuilder();
+                dane.Append(GlobalVariables.ID.ToString()); //to bedzie OID
+                dane.Append(';');
+                dane.Append(Data.Date.ToString());
+                dane.Append(';');
+                dane.Append(DataOddania.Date.ToString());
+                dane.Append(';');
+                dane.Append(textBoxKto.Text);
+                dane.Append(';');
+                dane.Append(textBoxMiejsce.Text);
+                dane.Append(';');
+                dane.Append(textBoxZaCo.Text);
+                dane.Append(';');
+                dane.Append(textBoxKwota.Text);
+                dane.Append(';');
+                dane.Append(textBoxEmail.Text);
+                dane.Append(';');
+                dane.Append(textBoxDodatkoweInfo.Text);
+                dane.Append(';');
+                dane.Append("1"); // Status czy aktywne, przy dodawaniu zawsze bedzie 1
+                dane.Append('\n');
+                GlobalVariables.ZapiszDoPliku(dane.ToString());
+                GlobalVariables.PodniesID();
+
+                Database.connectionObjWpis.Insert(new ObjWpis()
+                {
+                    ID = 1,
+                    Aktywne = "1",
+                    Data = DateTime.Now,
+                    DataOddania = DateTime.Now,
+                    DodatkoweInfo = "trolololo",
+                    Email = "elo",
+                    Kto = "matek",
+                    Kwota = "12",
+                    Miejsce = "SMCEBI",
+                    ZaCo = "Kawa"
+                });
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

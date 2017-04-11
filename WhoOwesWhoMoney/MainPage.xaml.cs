@@ -28,6 +28,11 @@ namespace WhoOwesWhoMoney
         {
             this.InitializeComponent();
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
+            Database.Init();
+            //=---------------TEST------------------TEST--------------TEST-----------------
+            Database.connectionObjWpis.CreateTable<ObjWpis>();
+
+            //=---------------TEST------------------TEST--------------TEST-----------------
 
             ApplicationView.PreferredLaunchViewSize = new Size(500, 800);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
@@ -55,8 +60,6 @@ namespace WhoOwesWhoMoney
                 Debug.WriteLine("Index obiektu " + listView.SelectedIndex.ToString());
                 if (listView.SelectedIndex == 0)
                 {
-                    //FormDodajNowe nowe = new FormDodajNowe();
-                    //nowe.
                     this.Frame.Navigate(typeof(FormDodajNowe));
                 }
             }

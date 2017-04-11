@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 namespace WhoOwesWhoMoney
 {
@@ -39,6 +40,7 @@ namespace WhoOwesWhoMoney
         public static async void ZapiszDoPliku(string tekst)
         {
             await Windows.Storage.FileIO.AppendTextAsync(dataFile, tekst);
+
 
             string text = await Windows.Storage.FileIO.ReadTextAsync(dataFile);
             // Zczytanie całego pliku
