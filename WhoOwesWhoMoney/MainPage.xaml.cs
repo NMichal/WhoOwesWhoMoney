@@ -30,7 +30,8 @@ namespace WhoOwesWhoMoney
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
-            //Database.connectionObjWpis.CreateTable<ObjWpis>();
+
+
 
             //=---------------TEST------------------TEST--------------TEST-----------------
 
@@ -61,6 +62,10 @@ namespace WhoOwesWhoMoney
                 if (listView.SelectedIndex == 0)
                 {
                     this.Frame.Navigate(typeof(FormDodajNowe));
+                }
+                if (listView.SelectedIndex == 1)
+                {
+                    this.Frame.Navigate(typeof(Formatki.FormMojeDlugi));
                 }
             }
             else

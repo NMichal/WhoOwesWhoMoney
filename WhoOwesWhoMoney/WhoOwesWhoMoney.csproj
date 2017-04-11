@@ -95,9 +95,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formatki\FormMojeDlugi.xaml.cs">
+      <DependentUpon>FormMojeDlugi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ObjWpis.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="FormDodajNowe.xaml.cs">
+    <Compile Include="Formatki\FormDodajNowe.xaml.cs">
       <DependentUpon>FormDodajNowe.xaml</DependentUpon>
     </Compile>
     <Compile Include="GlobalVariables.cs" />
@@ -105,7 +108,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCDodajNowe.xaml.cs">
+    <Compile Include="Kontrolki\UCDodajNowe.xaml.cs">
       <DependentUpon>UCDodajNowe.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -130,7 +133,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="FormDodajNowe.xaml">
+    <Page Include="Formatki\FormDodajNowe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formatki\FormMojeDlugi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,7 +145,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UCDodajNowe.xaml">
+    <Page Include="Kontrolki\UCDodajNowe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
