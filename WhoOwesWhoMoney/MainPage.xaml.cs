@@ -30,7 +30,7 @@ namespace WhoOwesWhoMoney
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
-            Database.connectionObjWpis.CreateTable<ObjWpis>();
+            //Database.connectionObjWpis.CreateTable<ObjWpis>();
 
             //=---------------TEST------------------TEST--------------TEST-----------------
 

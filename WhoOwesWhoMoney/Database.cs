@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,29 @@ namespace WhoOwesWhoMoney
 
             connectionObjWpis = new SQLite.Net.SQLiteConnection(new
                SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+
+            connectionObjWpis.CreateTable<ObjWpis>();
         }
+
+
+        public static bool Insert(ObjWpis wpis)
+        {
+            try
+            {
+                connectionObjWpis.Insert(wpis);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+
+
+
+
         public void CreateDatabase(string DB_PATH)
         {
             if (!CheckFileExists(DB_PATH).Result)

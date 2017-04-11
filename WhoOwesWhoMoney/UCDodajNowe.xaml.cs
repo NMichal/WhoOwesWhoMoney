@@ -61,6 +61,14 @@ namespace WhoOwesWhoMoney
                 return true;
             if (textBoxKwota.Text == null || textBoxKwota.Text == "")
                 return true;
+            try
+            {
+                Double.Parse(textBoxKwota.Text);
+            }
+            catch
+            {
+                return true;
+            }
                      
             return false;
         }
@@ -92,19 +100,23 @@ namespace WhoOwesWhoMoney
                 GlobalVariables.ZapiszDoPliku(dane.ToString());
                 GlobalVariables.PodniesID();
 
-                Database.connectionObjWpis.Insert(new ObjWpis()
+                ObjWpis wpis = new ObjWpis()
                 {
-                    ID = 1,
-                    Aktywne = "1",
-                    Data = DateTime.Now,
-                    DataOddania = DateTime.Now,
-                    DodatkoweInfo = "trolololo",
-                    Email = "elo",
-                    Kto = "matek",
-                    Kwota = "12",
-                    Miejsce = "SMCEBI",
-                    ZaCo = "Kawa"
-                });
+                    //ID = 1,   //niepodajemy bo automatycznie na bazie jest podnoszone
+                    Aktywne = "1",  // Status czy aktywne, przy dodawaniu zawsze bedzie 1
+                    Data = Data.Date.ToString(),
+                    DataOddania = DataOddania.Date.ToString(),
+                    DodatkoweInfo = textBoxDodatkoweInfo.Text,
+                    Email = textBoxEmail.Text,
+                    Kto = textBoxKto.Text,
+                    Kwota = textBoxKwota.Text,
+                    Miejsce = textBoxMiejsce.Text,
+                    ZaCo = textBoxZaCo.Text
+                    
+                };
+
+                if (!Database.Insert(wpis))
+                    return false;
 
                 return true;
             }
