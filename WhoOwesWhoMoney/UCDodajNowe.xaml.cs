@@ -22,7 +22,26 @@ namespace WhoOwesWhoMoney
         public UCDodajNowe()
         {
             this.InitializeComponent();
-            textBoxDodatkoweInfo.PlaceholderText = "Wpisz dodatkowe informacje ...";
+            Init();
+        }
+
+
+        private void Init()
+        {
+            textBoxDodatkoweInfo.PlaceholderText = "Wpisz dodatkowe informacje... \n(opcjonalne)";
+            textBoxKwota.PlaceholderText = "Podaj kwotę...";
+            textBoxMiejsce.PlaceholderText = "Miejsce ... (opcjonalne)";
+            textBoxZaCo.PlaceholderText = "Opis za co ...";
+            DataOddania.PlaceholderText = "(opcjonalne)";
+            Data.Date = DateTime.Now;
+            
+        }
+
+
+
+        internal void Wyczysc()
+        {
+            DataOddania.Date = null;
         }
     }
 }
