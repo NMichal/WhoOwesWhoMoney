@@ -48,5 +48,10 @@ namespace WhoOwesWhoMoney
         {
             UCDodajNowe1.Wyczysc();
         }
+
+        private void buttonZapisz_Click(object sender, RoutedEventArgs e)
+        {
+            UCDodajNowe1.Zapis();
+        }
     }
 }
