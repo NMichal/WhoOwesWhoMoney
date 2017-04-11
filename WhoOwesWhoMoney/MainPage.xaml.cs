@@ -27,6 +27,8 @@ namespace WhoOwesWhoMoney
         public MainPage()
         {
             this.InitializeComponent();
+            GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
+
 
             ApplicationView.PreferredLaunchViewSize = new Size(500, 800);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;

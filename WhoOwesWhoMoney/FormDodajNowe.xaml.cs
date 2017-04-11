@@ -41,7 +41,7 @@ namespace WhoOwesWhoMoney
 
         private void UCDodajNowe1_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void buttonWyczysc_Click(object sender, RoutedEventArgs e)

@@ -42,6 +42,12 @@ namespace WhoOwesWhoMoney
         internal void Wyczysc()
         {
             DataOddania.Date = null;
+            textBoxKto.Text = "";
+            textBoxMiejsce.Text = "";
+            textBoxZaCo.Text = "";
+            textBoxKwota.Text = "";
+            textBoxEmail.Text = "";
+            textBoxDodatkoweInfo.Text = "";
         }
     }
 }

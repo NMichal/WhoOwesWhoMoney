@@ -13,7 +13,7 @@
             <RowDefinition Height="143*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <local:UCDodajNowe x:Name="UCDodajNowe1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="640" Grid.RowSpan="3" Width="360" Margin="-10,0,0,0" Loaded="UCDodajNowe1_Loaded"/>
+        <local:UCDodajNowe x:Name="UCDodajNowe1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="640" Grid.RowSpan="3" Width="360" Margin="0,0,0,0" Loaded="UCDodajNowe1_Loaded"/>
         <Button x:Name="buttonWyczysc" Content="Wyczyść" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,348,0,0" Grid.Row="1" Width="222" Click="buttonWyczysc_Click"/>
         <Button x:Name="buttonAnuluj" Content="Anuluj" HorizontalAlignment="Left" Margin="265,348,-127,0" Grid.Row="1" VerticalAlignment="Top" Width="222"/>
         <Button x:Name="buttonZapisz" Content="Zapisz" HorizontalAlignment="Left" Margin="12,385,-127,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Width="475"/>

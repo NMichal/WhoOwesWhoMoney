@@ -98,6 +98,7 @@
     <Compile Include="FormDodajNowe.xaml.cs">
       <DependentUpon>FormDodajNowe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GlobalVariables.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
