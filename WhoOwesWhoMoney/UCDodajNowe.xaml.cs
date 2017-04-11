@@ -56,7 +56,7 @@ namespace WhoOwesWhoMoney
         internal void Zapis()
         {
             StringBuilder dane = new StringBuilder();
-            dane.Append("1"); //to bedzie OID
+            dane.Append(GlobalVariables.ID.ToString()); //to bedzie OID
             dane.Append(';');
             dane.Append(Data.Date.ToString());
             dane.Append(';');
@@ -77,6 +77,7 @@ namespace WhoOwesWhoMoney
             dane.Append("1"); // Status czy aktywne, przy dodawaniu zawsze bedzie 1
             dane.Append('\n');
             GlobalVariables.ZapiszDoPliku(dane.ToString());
+            GlobalVariables.PodniesID();
             
         }
     }

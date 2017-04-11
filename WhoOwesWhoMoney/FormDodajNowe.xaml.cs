@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -49,9 +50,11 @@ namespace WhoOwesWhoMoney
             UCDodajNowe1.Wyczysc();
         }
 
-        private void buttonZapisz_Click(object sender, RoutedEventArgs e)
+        private async void buttonZapisz_Click(object sender, RoutedEventArgs e)
         {
             UCDodajNowe1.Zapis();
+            var dialog = new MessageDialog("Dane zapisano pomyślnie.");
+            await dialog.ShowAsync();
         }
     }
 }
