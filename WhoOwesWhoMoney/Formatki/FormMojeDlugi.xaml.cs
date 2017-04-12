@@ -25,6 +25,7 @@ namespace WhoOwesWhoMoney.Formatki
         public FormMojeDlugi()
         {
             this.InitializeComponent();
+            UCMojeDlugi1.PokazAktywneDlugi();
         }
     }
 }

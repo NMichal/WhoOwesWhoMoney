@@ -45,6 +45,20 @@ namespace WhoOwesWhoMoney
 
 
 
+        public static List<ObjWpis> ListaAkrywnychWpisow()
+        {
+            List<ObjWpis> aktywneWpisy = connectionObjWpis.Table<ObjWpis>().Where(c => c.Aktywne == "1").ToList<ObjWpis>();
+            return aktywneWpisy;
+        }
+
+
+        public static ObjWpis ZwrocWpis(int id)
+        {
+            ObjWpis wpis = connectionObjWpis.Table<ObjWpis>().Where(c => c.ID == id).FirstOrDefault();
+            return wpis;
+        }
+
+
 
 
         public void CreateDatabase(string DB_PATH)

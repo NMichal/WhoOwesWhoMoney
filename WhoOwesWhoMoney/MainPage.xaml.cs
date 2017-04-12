@@ -30,7 +30,8 @@ namespace WhoOwesWhoMoney
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
-
+            List<ObjWpis> aktywneWpisy;
+            aktywneWpisy = Database.ListaAkrywnychWpisow();
 
 
             //=---------------TEST------------------TEST--------------TEST-----------------
@@ -49,8 +50,8 @@ namespace WhoOwesWhoMoney
         private void wyswietlKategorie()
         {
             listView.Items.Add("Dodaj nowe");
-            listView.Items.Add("Moje zaległości");
-            listView.Items.Add("Ktoś mi oddać ma");
+            listView.Items.Add("Pożyczone od kogoś");
+            listView.Items.Add("Pożyczone komuś");
         }
 
         private void listView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
