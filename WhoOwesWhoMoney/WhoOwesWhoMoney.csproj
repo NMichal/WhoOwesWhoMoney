@@ -98,6 +98,9 @@
     <Compile Include="Formatki\FormMojeDlugi.xaml.cs">
       <DependentUpon>FormMojeDlugi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formatki\FormWpisPodglad.xaml.cs">
+      <DependentUpon>FormWpisPodglad.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kontrolki\UCMojeDlugi.xaml.cs">
       <DependentUpon>UCMojeDlugi.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formatki\FormMojeDlugi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formatki\FormWpisPodglad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

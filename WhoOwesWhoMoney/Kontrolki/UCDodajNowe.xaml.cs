@@ -39,7 +39,32 @@ namespace WhoOwesWhoMoney
 
         }
 
+        /// <summary>
+        /// Metoda umożliwia pokazanie kontrolki jako tylko do podglądu
+        /// </summary>
+        internal void ZablokujPola()
+        {
+            Data.IsEnabled = false;
+            DataOddania.IsEnabled = false;
+            textBoxKto.IsReadOnly = true;
+            textBoxMiejsce.IsReadOnly = true;
+            textBoxZaCo.IsReadOnly = true;
+            textBoxKwota.IsReadOnly = true;
+            textBoxEmail.IsReadOnly = true;
+            textBoxDodatkoweInfo.IsReadOnly = true;
+        }
 
+        internal void OdblokujPola()
+        {
+            Data.IsEnabled = true;
+            DataOddania.IsEnabled = true;
+            textBoxKto.IsReadOnly = false;
+            textBoxMiejsce.IsReadOnly = false;
+            textBoxZaCo.IsReadOnly = false;
+            textBoxKwota.IsReadOnly = false;
+            textBoxEmail.IsReadOnly = false;
+            textBoxDodatkoweInfo.IsReadOnly = false;
+        }
 
         internal void Wyczysc()
         {
@@ -124,7 +149,6 @@ namespace WhoOwesWhoMoney
             {
                 return false;
             }
-
         }
     }
 }

@@ -19,19 +19,12 @@ namespace WhoOwesWhoMoney.Kontrolki
 {
     public sealed partial class UCMojeDlugi : UserControl
     {
+        public event DoubleTappedEventHandler DoubleTapped;
+        internal ObjWpis WybranyWpis;
+
         public UCMojeDlugi()
         {
             this.InitializeComponent();
-            /*listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");
-            listViewMojeDlugi.Items.Add("jeden");*/
         }
 
 
@@ -55,14 +48,20 @@ namespace WhoOwesWhoMoney.Kontrolki
             }
         }
 
-        internal void Odswiez() /// Możliwe że ta funkcja bedzie nie potrzebna
+        internal void Odswiez() /// Możliwe że ta funkcja bedzie nie potrzebna albo odswieżacnie po usubnięciu pozycji
         {
 
         }
 
         private void listViewMojeDlugi_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            ObjWpis wpis = (ObjWpis)((ListViewItem)listViewMojeDlugi.SelectedValue).Tag;
+            WybranyWpis = (ObjWpis)((ListViewItem)listViewMojeDlugi.SelectedValue).Tag;
+            if (WybranyWpis != null)
+            {
+                if (this.DoubleTapped != null)
+                    this.DoubleTapped(this, e);
+
+            }
         }
     }
 }

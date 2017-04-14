@@ -20,19 +20,26 @@ namespace WhoOwesWhoMoney.Formatki
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class FormMojeDlugi : Page
+    public sealed partial class FormWpisPodglad : Page
     {
-        public FormMojeDlugi()
+
+        private ObjWpis wpis;
+
+        public FormWpisPodglad()
         {
             this.InitializeComponent();
-            UCMojeDlugi1.DoubleTapped += new DoubleTappedEventHandler(UserControl_DoubleTapped);
-            UCMojeDlugi1.PokazAktywneDlugi();
+            UCDodajNowe2.ZablokujPola();
+            // Tu musimy odebrać parametr 
+            //ObjWpis = parametr;
+
+            //Dopisać metodę na UC wyświetl wpis
+            //UCDodajNowe2.WyswietlWpis(wpis);
+
         }
 
-        protected void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Dorobic przekazywanie obiektu i jego wyswietlanie
-            this.Frame.Navigate(typeof(Formatki.FormWpisPodglad), UCMojeDlugi1.WybranyWpis);
+            wpis = e.Parameter as ObjWpis;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,11 +28,21 @@ namespace WhoOwesWhoMoney
         public MainPage()
         {
             this.InitializeComponent();
+            //Kod odpowiedzialny za przycisk wstecz
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
+            {
+                Debug.WriteLine("BackRequested");
+                if (Frame.CanGoBack)
+                {
+                    Frame.GoBack();
+                    a.Handled = true;
+                }
+            };
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
-            List<ObjWpis> aktywneWpisy;
-            aktywneWpisy = Database.ListaAkrywnychWpisow();
+
 
 
             //=---------------TEST------------------TEST--------------TEST-----------------
@@ -70,7 +81,12 @@ namespace WhoOwesWhoMoney
                 }
             }
             else
+            {
                 Debug.WriteLine("Nie wybrano obiektu");
+                //=---------------TEST------------------TEST--------------TEST-----------------
+                this.Frame.Navigate(typeof(Formatki.FormWpisPodglad));
+                //=---------------TEST------------------TEST--------------TEST-----------------
+            }
         }
     }
 }
