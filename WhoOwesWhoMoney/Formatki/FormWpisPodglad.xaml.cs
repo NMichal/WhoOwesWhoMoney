@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -47,9 +48,19 @@ namespace WhoOwesWhoMoney.Formatki
 
         }
 
-        private void buttonUsun_Click(object sender, RoutedEventArgs e)
+        private async void buttonUsun_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Database.UsunWpis(wpis))
+            {
+                var dialog = new MessageDialog("Wpis usunięty.");
+                await dialog.ShowAsync();
+                this.Frame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                var dialog = new MessageDialog("Nie udało się usunąć wpisu.");
+                await dialog.ShowAsync();
+            }
         }
 
         private void buttonZamknij_Click(object sender, RoutedEventArgs e)
