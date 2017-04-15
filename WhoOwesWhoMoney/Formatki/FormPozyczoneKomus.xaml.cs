@@ -20,19 +20,12 @@ namespace WhoOwesWhoMoney.Formatki
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class FormMojeDlugi : Page
+    public sealed partial class FormPozyczoneKomus : Page
     {
-        public FormMojeDlugi()
+        public FormPozyczoneKomus()
         {
             this.InitializeComponent();
-            UCMojeDlugi1.DoubleTapped += new DoubleTappedEventHandler(UserControl_DoubleTapped);
-            UCMojeDlugi1.PokazAktywneWpisyOdKogos();
-        }
-
-        protected void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            //Dorobic przekazywanie obiektu i jego wyswietlanie
-            this.Frame.Navigate(typeof(Formatki.FormWpisPodglad), UCMojeDlugi1.WybranyWpis);
+            UCMojeDlugi2.PokazAktywnePozyczoneKomus();
         }
     }
 }

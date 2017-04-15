@@ -29,14 +29,31 @@ namespace WhoOwesWhoMoney.Kontrolki
 
 
 
-        internal void PokazAktywneDlugi()
+        internal void PokazAktywneWpisyOdKogos()
         {
             ////Jako że pisze długi to potem trzeba będze filtrować po kolumnie dlugi / pozyczka w DB
             //Na razie wyswietla wszyskie aktywne wpisy
-            List<ObjWpis> aktywneWpisy;
-            aktywneWpisy = Database.ListaAkrywnychWpisow();
+            List<ObjWpis> aktywneWpisyOdKogos;
+            aktywneWpisyOdKogos = Database.ListaAkrywnychWpisowOdKogos();
 
-            foreach (ObjWpis wpis in aktywneWpisy)
+            foreach (ObjWpis wpis in aktywneWpisyOdKogos)
+            {
+                ListViewItem item = new ListViewItem();
+                string nazwa = wpis.Kto + " - " + wpis.ZaCo + " - " + wpis.Kwota;
+                item.Content = nazwa;
+                item.Tag = wpis;
+
+
+                listViewMojeDlugi.Items.Add(item);
+            }
+        }
+
+        internal void PokazAktywnePozyczoneKomus()
+        {
+            List<ObjWpis> pozyczoneKomus;
+            pozyczoneKomus = Database.ListaAkrywnychWpisowPozyczonychKomus();
+
+            foreach (ObjWpis wpis in pozyczoneKomus)
             {
                 ListViewItem item = new ListViewItem();
                 string nazwa = wpis.Kto + " - " + wpis.ZaCo + " - " + wpis.Kwota;

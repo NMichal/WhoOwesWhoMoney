@@ -79,6 +79,10 @@ namespace WhoOwesWhoMoney
                 {
                     this.Frame.Navigate(typeof(Formatki.FormMojeDlugi));
                 }
+                if (listView.SelectedIndex == 2)
+                {
+                    this.Frame.Navigate(typeof(Formatki.FormPozyczoneKomus));
+                }
             }
             else
             {

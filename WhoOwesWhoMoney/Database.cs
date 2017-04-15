@@ -51,6 +51,17 @@ namespace WhoOwesWhoMoney
             return aktywneWpisy;
         }
 
+        public static List<ObjWpis> ListaAkrywnychWpisowOdKogos()
+        {
+            List<ObjWpis> aktywneWpisyOdKogos = connectionObjWpis.Table<ObjWpis>().Where(c => c.Aktywne == "1" && c.PokzyczamKomus == "False").ToList<ObjWpis>();
+            return aktywneWpisyOdKogos;
+        }
+
+        public static List<ObjWpis> ListaAkrywnychWpisowPozyczonychKomus()
+        {
+            List<ObjWpis> aktywneWpisyPozyczoneKomus = connectionObjWpis.Table<ObjWpis>().Where(c => c.Aktywne == "1" && c.PokzyczamKomus == "True").ToList<ObjWpis>();
+            return aktywneWpisyPozyczoneKomus;
+        }
 
         public static ObjWpis ZwrocWpis(int id)
         {
