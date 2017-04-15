@@ -114,6 +114,7 @@ namespace WhoOwesWhoMoney
                 textBoxEmail.Text = wpis.Email;//
             if (wpis.DodatkoweInfo != null && wpis.DodatkoweInfo != "")
                 textBoxDodatkoweInfo.Text = wpis.DodatkoweInfo;//
+            checkBoxPozyczamKomus.IsChecked =  Convert.ToBoolean(wpis.PokzyczamKomus);
         }
         internal bool Zapis()
         {
@@ -154,8 +155,8 @@ namespace WhoOwesWhoMoney
                     Kto = textBoxKto.Text,
                     Kwota = textBoxKwota.Text,
                     Miejsce = textBoxMiejsce.Text,
-                    ZaCo = textBoxZaCo.Text
-                    
+                    ZaCo = textBoxZaCo.Text,
+                    PokzyczamKomus = checkBoxPozyczamKomus.IsChecked.ToString()
                 };
 
                 if (!Database.Insert(wpis))
