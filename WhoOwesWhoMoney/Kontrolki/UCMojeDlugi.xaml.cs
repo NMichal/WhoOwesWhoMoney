@@ -72,12 +72,15 @@ namespace WhoOwesWhoMoney.Kontrolki
 
         private void listViewMojeDlugi_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            WybranyWpis = (ObjWpis)((ListViewItem)listViewMojeDlugi.SelectedValue).Tag;
-            if (WybranyWpis != null)
+            if (listViewMojeDlugi.SelectedValue != null)
             {
-                if (this.DoubleTapped != null)
-                    this.DoubleTapped(this, e);
+                WybranyWpis = (ObjWpis)((ListViewItem)listViewMojeDlugi.SelectedValue).Tag;
+                if (WybranyWpis != null)
+                {
+                    if (this.DoubleTapped != null)
+                        this.DoubleTapped(this, e);
 
+                }
             }
         }
     }

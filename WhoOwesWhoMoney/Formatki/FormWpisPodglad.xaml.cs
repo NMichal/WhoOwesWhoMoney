@@ -50,16 +50,23 @@ namespace WhoOwesWhoMoney.Formatki
 
         private async void buttonUsun_Click(object sender, RoutedEventArgs e)
         {
-            if(Database.UsunWpis(wpis))
+            var pytanie = new MessageDialog("Czy na pewno chcesz usunąć wpis?");
+            pytanie.Commands.Add(new Windows.UI.Popups.UICommand("Tak") { Id = 0 });
+            pytanie.Commands.Add(new Windows.UI.Popups.UICommand("Nie") { Id = 1 });
+            var result = await pytanie.ShowAsync();
+            if (Convert.ToInt32(result.Id) == 0)
             {
-                var dialog = new MessageDialog("Wpis usunięty.");
-                await dialog.ShowAsync();
-                this.Frame.Navigate(typeof(MainPage));
-            }
-            else
-            {
-                var dialog = new MessageDialog("Nie udało się usunąć wpisu.");
-                await dialog.ShowAsync();
+                if (Database.UsunWpis(wpis))
+                {
+                    var dialog = new MessageDialog("Wpis usunięty.");
+                    await dialog.ShowAsync();
+                    this.Frame.Navigate(typeof(MainPage));
+                }
+                else
+                {
+                    var dialog = new MessageDialog("Nie udało się usunąć wpisu.");
+                    await dialog.ShowAsync();
+                }
             }
         }
 
