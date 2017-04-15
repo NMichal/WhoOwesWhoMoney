@@ -25,7 +25,14 @@ namespace WhoOwesWhoMoney.Formatki
         public FormPozyczoneKomus()
         {
             this.InitializeComponent();
+            UCMojeDlugi2.DoubleTapped += new DoubleTappedEventHandler(UserControl_DoubleTapped);
             UCMojeDlugi2.PokazAktywnePozyczoneKomus();
+        }
+
+        protected void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            //Dorobic przekazywanie obiektu i jego wyswietlanie
+            this.Frame.Navigate(typeof(Formatki.FormWpisPodglad), UCMojeDlugi2.WybranyWpis);
         }
     }
 }
