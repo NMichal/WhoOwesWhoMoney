@@ -43,9 +43,37 @@ namespace WhoOwesWhoMoney.Formatki
             UCDodajNowe2.WyswietlWpis(wpis); // gdy damy go do inita to wywoła się przed otrzymaniem obiektu i wpis == null
         }
 
-        private void buttonEdytuj_Click(object sender, RoutedEventArgs e)
+        private async void buttonEdytuj_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Convert.ToString(buttonEdytuj.Content) == "Edytuj")
+            {
+                UCDodajNowe2.OdblokujPola();
+                buttonEdytuj.Content = "Zapisz";
+            }
+            else if (Convert.ToString(buttonEdytuj.Content) == "Zapisz")
+            {
+                wpis = UCDodajNowe2.AktualizujWpis(wpis);
+                if (!UCDodajNowe2.ValidateData())
+                {
+                    if (Database.Update(wpis))
+                    {
+                        UCDodajNowe2.ZablokujPola();
+                        buttonEdytuj.Content = "Edytuj";
+                        var dialog = new MessageDialog("Dane zapisano pomyślnie.");
+                        await dialog.ShowAsync();
+                    }
+                    else
+                    {
+                        var dialog = new MessageDialog("Nie udało się zapisać danych.");
+                        await dialog.ShowAsync();
+                    }
+                }
+                else
+                {
+                    var dialogValidate = new MessageDialog("Uzupełnij brakujące dane.");
+                    await dialogValidate.ShowAsync();
+                }
+            }
         }
 
         private async void buttonUsun_Click(object sender, RoutedEventArgs e)

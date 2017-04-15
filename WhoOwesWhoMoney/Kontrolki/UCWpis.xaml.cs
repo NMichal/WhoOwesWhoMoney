@@ -80,7 +80,7 @@ namespace WhoOwesWhoMoney
         }
 
 
-        internal bool ValidateData()
+        private bool ValidateData()
         {
             if (textBoxKto.Text == null || textBoxKto.Text == "")
                 return true;
@@ -116,27 +116,6 @@ namespace WhoOwesWhoMoney
                 textBoxDodatkoweInfo.Text = wpis.DodatkoweInfo;//
             checkBoxPozyczamKomus.IsChecked =  Convert.ToBoolean(wpis.PokzyczamKomus);
         }
-
-        /// <summary>
-        /// Metoda która ponownie pobiera obiekt i aktualizuje go nowymi
-        /// danymi z kontrolki.
-        /// </summary>
-        /// <returns></returns>
-        internal ObjWpis AktualizujWpis(ObjWpis wpis)
-        {
-            wpis.Data = Data.Date.ToString();
-            wpis.DataOddania = DataOddania.Date.ToString();
-            wpis.DodatkoweInfo = textBoxDodatkoweInfo.Text;
-            wpis.Email = textBoxEmail.Text;
-            wpis.Kto = textBoxKto.Text;
-            wpis.Kwota = textBoxKwota.Text;
-            wpis.Miejsce = textBoxMiejsce.Text;
-            wpis.ZaCo = textBoxZaCo.Text;
-            wpis.PokzyczamKomus = checkBoxPozyczamKomus.IsChecked.ToString();
-
-            return wpis;
-        }
-
         internal bool Zapis()
         {
             if (!ValidateData())

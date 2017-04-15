@@ -41,7 +41,7 @@ namespace WhoOwesWhoMoney
         {
             await Windows.Storage.FileIO.AppendTextAsync(dataFile, tekst);
 
-
+            //-------------TEST-------TEST------------TEST---------TEST---------//
             string text = await Windows.Storage.FileIO.ReadTextAsync(dataFile);
             // Zczytanie całego pliku
             foreach (var item in text.Split('\n'))
@@ -49,6 +49,7 @@ namespace WhoOwesWhoMoney
                 Debug.WriteLine(item); // tutaj dostajemy jeden wiersz
                 Debug.WriteLine(item.Split(';').Count());
             }
+            //-------------TEST-------TEST------------TEST---------TEST---------//
         }
 
 
