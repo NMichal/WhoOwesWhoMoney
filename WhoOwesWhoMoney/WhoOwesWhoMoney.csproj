@@ -95,9 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Formatki\FormEdytujWpis.xaml.cs">
-      <DependentUpon>FormEdytujWpis.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Formatki\FormMojeDlugi.xaml.cs">
       <DependentUpon>FormMojeDlugi.xaml</DependentUpon>
     </Compile>
@@ -146,10 +143,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Formatki\FormDodajNowe.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Formatki\FormEdytujWpis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
