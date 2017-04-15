@@ -8,9 +8,15 @@
     x:Class="WhoOwesWhoMoney.Formatki.FormWpisPodglad"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="400">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="410">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <WhoOwesWhoMoney:UCDodajNowe x:Name="UCDodajNowe2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="370" Height="640" Margin="-45,4,0,-4"/>
+        <WhoOwesWhoMoney:UCDodajNowe x:Name="UCDodajNowe2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="435" Height="640" Margin="-45,4,0,-4"/>
+        <Button x:Name="buttonEdytuj" Content="Edytuj" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,399,0,0" Width="166" Height="55" Click="buttonEdytuj_Click"/>
+        <Button x:Name="buttonUsun" Content="Usuń" HorizontalAlignment="Left" Margin="261,399,-27,0" VerticalAlignment="Top" Width="166" Height="55" Click="buttonUsun_Click"/>
+        <Button x:Name="buttonZamknij" Content="Zamknij" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top" Width="400" Height="55" Click="buttonZamknij_Click"/>
 
     </Grid>
 </Page>

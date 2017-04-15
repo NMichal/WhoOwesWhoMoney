@@ -23,23 +23,38 @@ namespace WhoOwesWhoMoney.Formatki
     public sealed partial class FormWpisPodglad : Page
     {
 
-        private ObjWpis wpis;
+        private ObjWpis wpis; // pomyśleć czy potrzebne
 
         public FormWpisPodglad()
         {
             this.InitializeComponent();
-            UCDodajNowe2.ZablokujPola();
-            // Tu musimy odebrać parametr 
-            //ObjWpis = parametr;
-
-            //Dopisać metodę na UC wyświetl wpis
-            //UCDodajNowe2.WyswietlWpis(wpis);
-
+            UCDodajNowe2.ZablokujPola();         
         }
 
+        /// <summary>
+        /// Funkcja przechwytuje parametr podany
+        /// przy wywołaniu formatki, a następnie 
+        /// wywołuje wyświetlenie wpisu
+        /// </summary>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             wpis = e.Parameter as ObjWpis;
+            UCDodajNowe2.WyswietlWpis(wpis); // gdy damy go do inita to wywoła się przed otrzymaniem obiektu i wpis == null
+        }
+
+        private void buttonEdytuj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonUsun_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonZamknij_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

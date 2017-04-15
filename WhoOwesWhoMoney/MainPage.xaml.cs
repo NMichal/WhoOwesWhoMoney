@@ -84,7 +84,7 @@ namespace WhoOwesWhoMoney
             {
                 Debug.WriteLine("Nie wybrano obiektu");
                 //=---------------TEST------------------TEST--------------TEST-----------------
-                this.Frame.Navigate(typeof(Formatki.FormWpisPodglad));
+                //this.Frame.Navigate(typeof(Formatki.FormWpisPodglad));
                 //=---------------TEST------------------TEST--------------TEST-----------------
             }
         }

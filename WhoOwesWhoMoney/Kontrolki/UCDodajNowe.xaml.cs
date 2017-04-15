@@ -97,6 +97,22 @@ namespace WhoOwesWhoMoney
                      
             return false;
         }
+
+        internal void WyswietlWpis(ObjWpis wpis)
+        {
+            Data.Date = DateTime.Parse(wpis.Data);
+            if (wpis.DataOddania != null && wpis.DataOddania != "")
+                DataOddania.Date = DateTime.Parse(wpis.DataOddania);//
+            textBoxKto.Text = wpis.Kto;
+            if (wpis.Miejsce != null && wpis.Miejsce != "")
+                textBoxMiejsce.Text = wpis.Miejsce;//
+            textBoxZaCo.Text = wpis.ZaCo;
+            textBoxKwota.Text = wpis.Kwota;
+            if (wpis.Email != null && wpis.Email != "")
+                textBoxEmail.Text = wpis.Email;//
+            if (wpis.DodatkoweInfo != null && wpis.DodatkoweInfo != "")
+                textBoxDodatkoweInfo.Text = wpis.DodatkoweInfo;//
+        }
         internal bool Zapis()
         {
             if (!ValidateData())
