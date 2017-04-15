@@ -21,6 +21,7 @@ namespace WhoOwesWhoMoney
         public string Email { get; set; }
         public string DodatkoweInfo { get; set; }
         public string Aktywne { get; set; }
+        public string PokzyczamKomus { get; set; }
 
         public ObjWpis()
         {

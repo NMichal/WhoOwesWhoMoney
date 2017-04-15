@@ -52,6 +52,7 @@ namespace WhoOwesWhoMoney
             textBoxKwota.IsReadOnly = true;
             textBoxEmail.IsReadOnly = true;
             textBoxDodatkoweInfo.IsReadOnly = true;
+            checkBoxPozyczamKomus.IsEnabled = false;
         }
 
         internal void OdblokujPola()
@@ -64,6 +65,7 @@ namespace WhoOwesWhoMoney
             textBoxKwota.IsReadOnly = false;
             textBoxEmail.IsReadOnly = false;
             textBoxDodatkoweInfo.IsReadOnly = false;
+            checkBoxPozyczamKomus.IsEnabled = true;
         }
 
         internal void Wyczysc()
