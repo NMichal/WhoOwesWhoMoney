@@ -10,7 +10,7 @@ namespace WhoOwesWhoMoney
 {
     class Database
     {
-        public static SQLite.Net.SQLiteConnection connectionObjWpis;
+        private static SQLite.Net.SQLiteConnection connectionObjWpis;
 
         public static void Init()
         {
@@ -43,6 +43,38 @@ namespace WhoOwesWhoMoney
             }
         }
 
+        public static bool Update(ObjWpis wpis)
+        {
+            try
+            {
+                connectionObjWpis.Update(wpis);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Zmienia status podanego wpisu na nieaktualny
+        /// </summary>
+        public static bool UsunWpis(ObjWpis wpis)
+        {
+            try
+            {
+                wpis.Aktywne = "0";
+                connectionObjWpis.Update(wpis);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
 
 
         public static List<ObjWpis> ListaAkrywnychWpisow()
@@ -67,33 +99,6 @@ namespace WhoOwesWhoMoney
         {
             ObjWpis wpis = connectionObjWpis.Table<ObjWpis>().Where(c => c.ID == id).FirstOrDefault();
             return wpis;
-        }
-
-
-
-
-        public void CreateDatabase(string DB_PATH)
-        {
-            if (!CheckFileExists(DB_PATH).Result)
-            {
-                using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), DB_PATH))
-                {
-                    conn.CreateTable<ObjWpis>();
-
-                }
-            }
-        }
-        private async Task<bool> CheckFileExists(string fileName)
-        {
-            try
-            {
-                var store = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }
