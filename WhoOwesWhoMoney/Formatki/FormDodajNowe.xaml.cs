@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Contacts;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -23,11 +24,18 @@ namespace WhoOwesWhoMoney
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
     public sealed partial class FormDodajNowe : Page
     {
+        private Contact kontakt;
+
         public FormDodajNowe()
         {
             this.InitializeComponent();
+
+            WybierzKontakt();
+
+
             //Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             //Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
             //{
@@ -40,9 +48,24 @@ namespace WhoOwesWhoMoney
             //};
         }
 
+        public async void WybierzKontakt()
+        {
+            var contactPicker = new Windows.ApplicationModel.Contacts.ContactPicker();
+            contactPicker.DesiredFieldsWithContactFieldType.Add(ContactFieldType.Email);
+            //contactPicker.DesiredFieldsWithContactFieldType.Add(ContactFieldType.Address);
+            contactPicker.DesiredFieldsWithContactFieldType.Add(ContactFieldType.PhoneNumber);
+
+            kontakt = await contactPicker.PickContactAsync();
+            if (kontakt != null)
+            {
+                var email = kontakt.Emails.FirstOrDefault<Windows.ApplicationModel.Contacts.ContactEmail>();
+                var phone = kontakt.Phones.FirstOrDefault<Windows.ApplicationModel.Contacts.ContactPhone>();
+            }
+        }
+
         private void UCDodajNowe1_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void buttonWyczysc_Click(object sender, RoutedEventArgs e)
