@@ -77,9 +77,9 @@ namespace WhoOwesWhoMoney
 
 
 
-        public static List<ObjWpis> ListaAkrywnychWpisow()
+        public static List<ObjWpis> ListaWszystkichWpisow()
         {
-            List<ObjWpis> aktywneWpisy = connectionObjWpis.Table<ObjWpis>().Where(c => c.Aktywne == "1").ToList<ObjWpis>();
+            List<ObjWpis> aktywneWpisy = connectionObjWpis.Table<ObjWpis>().ToList<ObjWpis>();
             return aktywneWpisy;
         }
 

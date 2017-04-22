@@ -101,6 +101,9 @@
     <Compile Include="Formatki\FormPozyczoneKomus.xaml.cs">
       <DependentUpon>FormPozyczoneKomus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formatki\FormUstawienia.xaml.cs">
+      <DependentUpon>FormUstawienia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formatki\FormWpisPodglad.xaml.cs">
       <DependentUpon>FormWpisPodglad.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formatki\FormPozyczoneKomus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formatki\FormUstawienia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

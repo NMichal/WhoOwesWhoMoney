@@ -42,7 +42,7 @@ namespace WhoOwesWhoMoney
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
-
+            test();
 
 
             //=---------------TEST------------------TEST--------------TEST-----------------
@@ -63,6 +63,7 @@ namespace WhoOwesWhoMoney
             listView.Items.Add("Dodaj nowe");
             listView.Items.Add("Pożyczone od kogoś");
             listView.Items.Add("Pożyczone komuś");
+            listView.Items.Add("Ustawienia");
         }
 
         private void listView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
@@ -71,7 +72,7 @@ namespace WhoOwesWhoMoney
             {
                 Debug.WriteLine("Wybrany obiekt " + listView.SelectedItem.ToString());
                 Debug.WriteLine("Index obiektu " + listView.SelectedIndex.ToString());
-                if (listView.SelectedIndex == 0)
+                /*if (listView.SelectedIndex == 0)
                 {
                     this.Frame.Navigate(typeof(FormDodajNowe));
                 }
@@ -82,6 +83,22 @@ namespace WhoOwesWhoMoney
                 if (listView.SelectedIndex == 2)
                 {
                     this.Frame.Navigate(typeof(Formatki.FormPozyczoneKomus));
+                }*/
+                switch (listView.SelectedIndex)
+                {
+                    case 0:
+                        this.Frame.Navigate(typeof(FormDodajNowe));
+                        break;
+                    case 1:
+                        this.Frame.Navigate(typeof(Formatki.FormMojeDlugi));
+                        break;
+                    case 2:
+                        this.Frame.Navigate(typeof(Formatki.FormPozyczoneKomus));
+                        break;
+                    case 3:
+                        this.Frame.Navigate(typeof(Formatki.FormUstawienia));
+                        GlobalVariables.EksportDoPliku();
+                        break;
                 }
             }
             else
@@ -90,6 +107,26 @@ namespace WhoOwesWhoMoney
                 //=---------------TEST------------------TEST--------------TEST-----------------
                 //this.Frame.Navigate(typeof(Formatki.FormWpisPodglad));
                 //=---------------TEST------------------TEST--------------TEST-----------------
+            }
+        }
+
+        private async void test()
+        {
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            picker.FileTypeFilter.Add(".csv");
+            picker.FileTypeFilter.Add(".sqlite");
+
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                Debug.WriteLine("Picked photo: " + file.Name);
+            }
+            else
+            {
+                Debug.WriteLine("Operation cancelled.");
             }
         }
     }
