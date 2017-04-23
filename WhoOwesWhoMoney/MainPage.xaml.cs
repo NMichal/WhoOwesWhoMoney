@@ -44,7 +44,6 @@ namespace WhoOwesWhoMoney
             //=---------------TEST------------------TEST--------------TEST-----------------
 
 
-
             //=---------------TEST------------------TEST--------------TEST-----------------
 
             ApplicationView.PreferredLaunchViewSize = new Size(500, 800);

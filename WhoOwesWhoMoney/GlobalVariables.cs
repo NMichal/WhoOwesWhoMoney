@@ -89,6 +89,7 @@ namespace WhoOwesWhoMoney
                 dane.Append(wpis.Aktywne);
                 dane.Append(';');
                 dane.Append(wpis.PokzyczamKomus);
+                dane.Append(';');
                 dane.Append('\n');
 
                 await Windows.Storage.FileIO.AppendTextAsync(plikEksport, dane.ToString());
@@ -127,6 +128,40 @@ namespace WhoOwesWhoMoney
             if (plikImportu != null)
             {
                 Debug.WriteLine("Wybrano plik: " + plikImportu.Name);
+
+
+                string text = await Windows.Storage.FileIO.ReadTextAsync(plikImportu);
+                // Zczytanie całego pliku
+                foreach (var wiersz in text.Split('\n'))
+                {
+                    Debug.WriteLine(wiersz); // tutaj dostajemy jeden wiersz
+
+                    if (wiersz != null && wiersz != "" && wiersz != " ")
+                    {
+
+                        String[] wiersz_split = wiersz.Split(';');
+
+                        ObjWpis wpis = new ObjWpis
+                        {
+                            //ID = Int32.Parse(wiersz_split[0]),
+                            Data = wiersz_split[1],
+                            DataOddania = wiersz_split[2],
+                            Kto = wiersz_split[3],
+                            Miejsce = wiersz_split[4],
+                            ZaCo = wiersz_split[5],
+                            Kwota = wiersz_split[6],
+                            Email = wiersz_split[7],
+                            DodatkoweInfo = wiersz_split[8],
+                            Aktywne = wiersz_split[9],
+                            PokzyczamKomus = wiersz_split[10]
+                        };
+
+                        Database.Insert(wpis);
+
+
+                        Debug.WriteLine(wiersz.Split(';').Count());
+                    }
+                }
             }
             else
             {
@@ -134,13 +169,6 @@ namespace WhoOwesWhoMoney
 
             }
 
-            string text = await Windows.Storage.FileIO.ReadTextAsync(plikImportu);
-            // Zczytanie całego pliku
-            foreach (var linijka in text.Split('\n'))
-            {
-                Debug.WriteLine(linijka); // tutaj dostajemy jeden wiersz
-                Debug.WriteLine(linijka.Split(';').Count());
-            }
         }
 
 
