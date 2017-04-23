@@ -112,18 +112,35 @@ namespace WhoOwesWhoMoney
             await EmailManager.ShowComposeNewEmailAsync(emailMessage);
         }
 
-
-        public static async void ImportZPliku()//Co w parametrze ? jak podać wybrany plik, czy tylko nazwa ??? 
+        /// <summary>
+        /// Funkcja importuje dane z wybranego pliku *.csv do bazy
+        /// </summary>
+        public static async void ImportZPliku()
         {
-            //-------------TEST-------TEST------------TEST---------TEST---------//
-            string text = await Windows.Storage.FileIO.ReadTextAsync(dataFile);
-            // Zczytanie całego pliku
-            foreach (var item in text.Split('\n'))
+
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            picker.FileTypeFilter.Add(".csv");
+
+            Windows.Storage.StorageFile plikImportu = await picker.PickSingleFileAsync();
+            if (plikImportu != null)
             {
-                Debug.WriteLine(item); // tutaj dostajemy jeden wiersz
-                Debug.WriteLine(item.Split(';').Count());
+                Debug.WriteLine("Wybrano plik: " + plikImportu.Name);
             }
-            //-------------TEST-------TEST------------TEST---------TEST---------//
+            else
+            {
+                Debug.WriteLine("Anulowano wybieranie pliku.");
+
+            }
+
+            string text = await Windows.Storage.FileIO.ReadTextAsync(plikImportu);
+            // Zczytanie całego pliku
+            foreach (var linijka in text.Split('\n'))
+            {
+                Debug.WriteLine(linijka); // tutaj dostajemy jeden wiersz
+                Debug.WriteLine(linijka.Split(';').Count());
+            }
         }
 
 

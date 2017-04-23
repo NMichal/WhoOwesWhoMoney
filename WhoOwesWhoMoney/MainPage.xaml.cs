@@ -42,7 +42,7 @@ namespace WhoOwesWhoMoney
             GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
-            test();
+
 
 
             //=---------------TEST------------------TEST--------------TEST-----------------
@@ -97,7 +97,8 @@ namespace WhoOwesWhoMoney
                         break;
                     case 3:
                         this.Frame.Navigate(typeof(Formatki.FormUstawienia));
-                        GlobalVariables.EksportDoPliku();
+                        //GlobalVariables.EksportDoPliku();
+                        GlobalVariables.ImportZPliku();
                         break;
                 }
             }
@@ -110,24 +111,6 @@ namespace WhoOwesWhoMoney
             }
         }
 
-        private async void test()
-        {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            picker.FileTypeFilter.Add(".csv");
-            picker.FileTypeFilter.Add(".sqlite");
 
-            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
-            if (file != null)
-            {
-                // Application now has read/write access to the picked file
-                Debug.WriteLine("Picked photo: " + file.Name);
-            }
-            else
-            {
-                Debug.WriteLine("Operation cancelled.");
-            }
-        }
     }
 }
