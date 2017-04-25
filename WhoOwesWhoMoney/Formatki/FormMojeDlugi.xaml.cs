@@ -29,7 +29,7 @@ namespace WhoOwesWhoMoney.Formatki
             UCMojeDlugi1.PokazAktywneWpisyOdKogos();
         }
 
-        protected void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             //Dorobic przekazywanie obiektu i jego wyswietlanie
             this.Frame.Navigate(typeof(Formatki.FormWpisPodglad), UCMojeDlugi1.WybranyWpis);
