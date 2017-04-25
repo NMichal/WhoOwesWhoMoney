@@ -10,7 +10,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <Kontrolki:UCMojeDlugi x:Name="UCMojeDlugi2" HorizontalAlignment="Left" Margin="0,10,-10,0" VerticalAlignment="Top" Height="476"/>
+        <Kontrolki:UCMojeDlugi x:Name="UCMojeDlugi2" HorizontalAlignment="Left" Margin="0,10,-10,0" VerticalAlignment="Top" Height="636" Width="408"/>
 
     </Grid>
 </Page>

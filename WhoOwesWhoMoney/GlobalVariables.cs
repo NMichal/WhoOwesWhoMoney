@@ -13,16 +13,16 @@ namespace WhoOwesWhoMoney
     class GlobalVariables
     {
         public static StorageFile dataFile;
-        public static StorageFile dataID;
-        public static int ID;
+        //public static StorageFile dataID; //Po przejściu na SQLite nie potrzebne
+        //public static int ID;
 
-        public static async void Init()
-        {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            dataFile = await storageFolder.CreateFileAsync("data.csv",
-                Windows.Storage.CreationCollisionOption.OpenIfExists);
+        //public static async void Init()
+        //{
+           // Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+           // dataFile = await storageFolder.CreateFileAsync("data.csv",
+            //    Windows.Storage.CreationCollisionOption.OpenIfExists);
 
-            dataID = await storageFolder.CreateFileAsync("dataID",
+            /*dataID = await storageFolder.CreateFileAsync("dataID",
                 Windows.Storage.CreationCollisionOption.OpenIfExists);
 
             string text = await Windows.Storage.FileIO.ReadTextAsync(dataID);
@@ -34,8 +34,8 @@ namespace WhoOwesWhoMoney
             {
                 ID = -1;
                 PodniesID();
-            }
-        }
+            }*/             //Po przejściu na SQLite nie potrzebne
+        //}
 
 
         public static async void ZapiszDoPliku(string tekst)
@@ -175,11 +175,11 @@ namespace WhoOwesWhoMoney
 
 
         //Po przejściu na SQLite ta funkcja ni jest potrzebna
-        public static async void PodniesID()
+        /*public static async void PodniesID()
         {
             ID++;
             await Windows.Storage.FileIO.WriteTextAsync(dataID, ID.ToString());
-        }
+        }*/
 
     }
 }

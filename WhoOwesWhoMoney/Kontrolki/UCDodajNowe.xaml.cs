@@ -104,16 +104,16 @@ namespace WhoOwesWhoMoney
         {
             Data.Date = DateTime.Parse(wpis.Data);
             if (wpis.DataOddania != null && wpis.DataOddania != "")
-                DataOddania.Date = DateTime.Parse(wpis.DataOddania);//
+                DataOddania.Date = DateTime.Parse(wpis.DataOddania);
             textBoxKto.Text = wpis.Kto;
             if (wpis.Miejsce != null && wpis.Miejsce != "")
-                textBoxMiejsce.Text = wpis.Miejsce;//
+                textBoxMiejsce.Text = wpis.Miejsce;
             textBoxZaCo.Text = wpis.ZaCo;
             textBoxKwota.Text = wpis.Kwota;
             if (wpis.Email != null && wpis.Email != "")
-                textBoxEmail.Text = wpis.Email;//
+                textBoxEmail.Text = wpis.Email;
             if (wpis.DodatkoweInfo != null && wpis.DodatkoweInfo != "")
-                textBoxDodatkoweInfo.Text = wpis.DodatkoweInfo;//
+                textBoxDodatkoweInfo.Text = wpis.DodatkoweInfo;
             checkBoxPozyczamKomus.IsChecked =  Convert.ToBoolean(wpis.PokzyczamKomus);
         }
 
@@ -121,7 +121,7 @@ namespace WhoOwesWhoMoney
         /// Metoda która ponownie pobiera obiekt i aktualizuje go nowymi
         /// danymi z kontrolki.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Zwraca zaktualizowany obiekt z danymi z kontrolki</returns>
         internal ObjWpis AktualizujWpis(ObjWpis wpis)
         {
             wpis.Data = Data.Date.ToString();
@@ -140,7 +140,7 @@ namespace WhoOwesWhoMoney
         internal bool Zapis()
         {
             if (!ValidateData())
-            {
+            {/*
                 StringBuilder dane = new StringBuilder();
                 dane.Append(GlobalVariables.ID.ToString()); //to bedzie OID
                 dane.Append(';');
@@ -163,7 +163,7 @@ namespace WhoOwesWhoMoney
                 dane.Append("1"); // Status czy aktywne, przy dodawaniu zawsze bedzie 1
                 dane.Append('\n');
                 GlobalVariables.ZapiszDoPliku(dane.ToString());
-                GlobalVariables.PodniesID();
+                GlobalVariables.PodniesID();*/                            // Po przejściu na SQLite zapis do CSV nie potrzebny
 
                 ObjWpis wpis = new ObjWpis()
                 {

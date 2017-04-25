@@ -39,14 +39,14 @@ namespace WhoOwesWhoMoney
                     a.Handled = true;
                 }
             };
-            GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji
+            //GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji  // Po przejściu na SQLite nie potrzebna 
             Database.Init();
             //=---------------TEST------------------TEST--------------TEST-----------------
 
 
             //=---------------TEST------------------TEST--------------TEST-----------------
 
-            ApplicationView.PreferredLaunchViewSize = new Size(500, 630);
+            ApplicationView.PreferredLaunchViewSize = new Size(500, 680);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
             wyswietlKategorie();
