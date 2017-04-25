@@ -42,8 +42,26 @@ namespace WhoOwesWhoMoney.Kontrolki
                     case 0:
                         //Tutaj text = database.pobierzEmail();
                         // i ContentDialogEmail(text)  - żeby był wyświetlany obecnie wprowadzony
-                        var text = await InputTextDialogAsync("Stary mail");
-                        break;
+                        ObjEmail staryEmail = Database.PobierzEmail();
+                        //string tekst = await InputTextDialogAsync(staryEmail.Email);
+                        if (staryEmail != null)
+                        {
+                            string tekst = await InputTextDialogAsync(staryEmail.Email);
+                            staryEmail.Email = tekst;
+                            Database.Update(staryEmail);
+                        }
+                        if (staryEmail == null)
+                        {
+                            string tekst = await InputTextDialogAsync("");
+                            ObjEmail email = new ObjEmail
+                            {
+                                ID = 1,
+                                Email = tekst
+                            };
+                            Database.Insert(email);
+                        }
+     
+                       break;
                     case 1:
                         GlobalVariables.EksportDoPliku();
                         break;

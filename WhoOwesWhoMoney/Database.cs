@@ -105,5 +105,39 @@ namespace WhoOwesWhoMoney
             ObjWpis wpis = connectionObjWpis.Table<ObjWpis>().Where(c => c.ID == id).FirstOrDefault();
             return wpis;
         }
+
+        public static bool Insert(ObjEmail email)
+        {
+            try
+            {
+                connectionEmail.Insert(email);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public static bool Update(ObjEmail email)
+        {
+            try
+            {
+                connectionEmail.Update(email);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public static ObjEmail PobierzEmail()
+        {
+            ObjEmail email = connectionEmail.Table<ObjEmail>().FirstOrDefault();
+            return email;
+        }
     }
 }
