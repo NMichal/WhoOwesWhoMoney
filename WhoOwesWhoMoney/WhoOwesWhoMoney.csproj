@@ -110,6 +110,10 @@
     <Compile Include="Kontrolki\UCMojeDlugi.xaml.cs">
       <DependentUpon>UCMojeDlugi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Kontrolki\UCUstawienia.xaml.cs">
+      <DependentUpon>UCUstawienia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ObjEmail.cs" />
     <Compile Include="ObjWpis.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Formatki\FormDodajNowe.xaml.cs">
@@ -166,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Kontrolki\UCMojeDlugi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kontrolki\UCUstawienia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

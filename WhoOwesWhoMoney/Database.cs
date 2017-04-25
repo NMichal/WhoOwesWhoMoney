@@ -11,6 +11,7 @@ namespace WhoOwesWhoMoney
     class Database
     {
         private static SQLite.Net.SQLiteConnection connectionObjWpis;
+        private static SQLite.Net.SQLiteConnection connectionEmail;
 
         public static void Init()
         {
@@ -25,7 +26,11 @@ namespace WhoOwesWhoMoney
             connectionObjWpis = new SQLite.Net.SQLiteConnection(new
                SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
 
+            connectionEmail = new SQLite.Net.SQLiteConnection(new
+                SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+
             connectionObjWpis.CreateTable<ObjWpis>();
+            connectionEmail.CreateTable<ObjEmail>();
         }
 
 

@@ -46,7 +46,7 @@ namespace WhoOwesWhoMoney
 
             //=---------------TEST------------------TEST--------------TEST-----------------
 
-            ApplicationView.PreferredLaunchViewSize = new Size(500, 800);
+            ApplicationView.PreferredLaunchViewSize = new Size(500, 630);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
             wyswietlKategorie();
@@ -97,7 +97,7 @@ namespace WhoOwesWhoMoney
                     case 3:
                         this.Frame.Navigate(typeof(Formatki.FormUstawienia));
                         //GlobalVariables.EksportDoPliku();
-                        GlobalVariables.ImportZPliku();
+                        //GlobalVariables.ImportZPliku();
                         break;
                 }
             }
