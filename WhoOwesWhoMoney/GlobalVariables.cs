@@ -96,8 +96,9 @@ namespace WhoOwesWhoMoney
             }
 
             // DOROBIĆ ŻE W USTAWIENIACH PODAJEMY EMAIL I KOPIA JEST NA NIEGO WYSYŁANA, NA RAZIE EMAIL NA SZTYWNO
+            ObjEmail email = Database.PobierzEmail();
             EmailMessage emailMessage = new EmailMessage();
-            emailMessage.To.Add(new EmailRecipient("michal.niewolik@smcebi.edu.pl"));
+            emailMessage.To.Add(new EmailRecipient(email.Email));
             string messageBody = "Kopia wpisów z dnia: " + DateTime.Now.ToString();
             emailMessage.Body = messageBody;
             emailMessage.Subject = "Kopia wpisów";

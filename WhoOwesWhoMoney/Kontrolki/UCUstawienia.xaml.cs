@@ -47,21 +47,27 @@ namespace WhoOwesWhoMoney.Kontrolki
                         if (staryEmail != null)
                         {
                             string tekst = await InputTextDialogAsync(staryEmail.Email);
-                            staryEmail.Email = tekst;
-                            Database.Update(staryEmail);
+                            if (tekst != "")
+                            {
+                                staryEmail.Email = tekst;
+                                Database.Update(staryEmail);
+                            }
                         }
                         if (staryEmail == null)
                         {
                             string tekst = await InputTextDialogAsync("");
-                            ObjEmail email = new ObjEmail
+                            if (tekst != "")
                             {
-                                ID = 1,
-                                Email = tekst
-                            };
-                            Database.Insert(email);
+                                ObjEmail email = new ObjEmail
+                                {
+                                    ID = 1,
+                                    Email = tekst
+                                };
+                                Database.Insert(email);
+                            }
                         }
-     
-                       break;
+
+                        break;
                     case 1:
                         GlobalVariables.EksportDoPliku();
                         break;
