@@ -39,11 +39,8 @@ namespace WhoOwesWhoMoney.Kontrolki
             {
                 switch (listViewUstawienia.SelectedIndex)
                 {
-                    case 0:
-                        //Tutaj text = database.pobierzEmail();
-                        // i ContentDialogEmail(text)  - żeby był wyświetlany obecnie wprowadzony
+                    case 0:                        
                         ObjEmail staryEmail = Database.PobierzEmail();
-                        //string tekst = await InputTextDialogAsync(staryEmail.Email);
                         if (staryEmail != null)
                         {
                             string tekst = await InputTextDialogAsync(staryEmail.Email);

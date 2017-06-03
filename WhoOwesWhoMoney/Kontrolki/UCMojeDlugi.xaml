@@ -9,7 +9,7 @@
     d:DesignWidth="400" Height="396.393">
 
     <Grid>
-        <ListView x:Name="listViewMojeDlugi" HorizontalAlignment="Left" Height="886" VerticalAlignment="Top" Width="690" DoubleTapped="listViewMojeDlugi_DoubleTapped" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <ListView x:Name="listViewMojeDlugi" HorizontalAlignment="Left" Height="886" VerticalAlignment="Top" Width="690" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" DoubleTapped="listViewMojeDlugi_DoubleTapped"/>
 
     </Grid>
 </UserControl>

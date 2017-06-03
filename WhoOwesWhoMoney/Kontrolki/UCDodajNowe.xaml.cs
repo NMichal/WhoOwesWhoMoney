@@ -35,6 +35,8 @@ namespace WhoOwesWhoMoney
             textBoxMiejsce.PlaceholderText = "Miejsce... (opcjonalne)";
             textBoxZaCo.PlaceholderText = "Opis za co...";
             DataOddania.PlaceholderText = "(opcjonalne)";
+            textBoxEmail.PlaceholderText = "(opcjonalne)";
+            textBoxKto.PlaceholderText = "Kto ...";
             Data.Date = DateTime.Now;
 
         }
@@ -75,7 +77,7 @@ namespace WhoOwesWhoMoney
             textBoxMiejsce.Text = "";
             textBoxZaCo.Text = "";
             textBoxKwota.Text = "";
-            textBoxEmail.Text = "";
+            textBoxEmail.Text = "";            
             textBoxDodatkoweInfo.Text = "";
         }
 
@@ -140,35 +142,10 @@ namespace WhoOwesWhoMoney
         internal bool Zapis()
         {
             if (!ValidateData())
-            {/*
-                StringBuilder dane = new StringBuilder();
-                dane.Append(GlobalVariables.ID.ToString()); //to bedzie OID
-                dane.Append(';');
-                dane.Append(Data.Date.ToString());
-                dane.Append(';');
-                dane.Append(DataOddania.Date.ToString());
-                dane.Append(';');
-                dane.Append(textBoxKto.Text);
-                dane.Append(';');
-                dane.Append(textBoxMiejsce.Text);
-                dane.Append(';');
-                dane.Append(textBoxZaCo.Text);
-                dane.Append(';');
-                dane.Append(textBoxKwota.Text);
-                dane.Append(';');
-                dane.Append(textBoxEmail.Text);
-                dane.Append(';');
-                dane.Append(textBoxDodatkoweInfo.Text);
-                dane.Append(';');
-                dane.Append("1"); // Status czy aktywne, przy dodawaniu zawsze bedzie 1
-                dane.Append('\n');
-                GlobalVariables.ZapiszDoPliku(dane.ToString());
-                GlobalVariables.PodniesID();*/                            // Po przejściu na SQLite zapis do CSV nie potrzebny
-
+            {
                 ObjWpis wpis = new ObjWpis()
-                {
-                    //ID = 1,   //niepodajemy bo automatycznie na bazie jest podnoszone
-                    Aktywne = "1",  // Status czy aktywne, przy dodawaniu zawsze bedzie 1
+                {                   
+                    Aktywne = "1",
                     Data = Data.Date.ToString(),
                     DataOddania = DataOddania.Date.ToString(),
                     DodatkoweInfo = textBoxDodatkoweInfo.Text,

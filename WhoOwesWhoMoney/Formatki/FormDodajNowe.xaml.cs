@@ -27,40 +27,9 @@ namespace WhoOwesWhoMoney
     /// 
     public sealed partial class FormDodajNowe : Page
     {
-        private Contact kontakt;
-
         public FormDodajNowe()
         {
             this.InitializeComponent();
-
-            WybierzKontakt();
-
-
-            //Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            //Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
-            //{
-            //    Debug.WriteLine("BackRequested");
-            //    if (Frame.CanGoBack)
-            //    {
-            //        Frame.GoBack();
-            //        a.Handled = true;
-            //    }
-            //};
-        }
-
-        public async void WybierzKontakt()
-        {
-            var contactPicker = new Windows.ApplicationModel.Contacts.ContactPicker();
-            contactPicker.DesiredFieldsWithContactFieldType.Add(ContactFieldType.Email);
-            //contactPicker.DesiredFieldsWithContactFieldType.Add(ContactFieldType.Address);
-            contactPicker.DesiredFieldsWithContactFieldType.Add(ContactFieldType.PhoneNumber);
-
-            kontakt = await contactPicker.PickContactAsync();
-            if (kontakt != null)
-            {
-                var email = kontakt.Emails.FirstOrDefault<Windows.ApplicationModel.Contacts.ContactEmail>();
-                var phone = kontakt.Phones.FirstOrDefault<Windows.ApplicationModel.Contacts.ContactPhone>();
-            }
         }
 
         private void UCDodajNowe1_Loaded(object sender, RoutedEventArgs e)

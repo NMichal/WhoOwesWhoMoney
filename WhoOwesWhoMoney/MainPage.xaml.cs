@@ -39,12 +39,8 @@ namespace WhoOwesWhoMoney
                     a.Handled = true;
                 }
             };
-            //GlobalVariables.Init(); //Puszczamy inicjalizację zmiennych globalnych po uruchomieniu aplikacji  // Po przejściu na SQLite nie potrzebna 
+
             Database.Init();
-            //=---------------TEST------------------TEST--------------TEST-----------------
-
-
-            //=---------------TEST------------------TEST--------------TEST-----------------
 
             ApplicationView.PreferredLaunchViewSize = new Size(500, 680);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
@@ -71,18 +67,7 @@ namespace WhoOwesWhoMoney
             {
                 Debug.WriteLine("Wybrany obiekt " + listView.SelectedItem.ToString());
                 Debug.WriteLine("Index obiektu " + listView.SelectedIndex.ToString());
-                /*if (listView.SelectedIndex == 0)
-                {
-                    this.Frame.Navigate(typeof(FormDodajNowe));
-                }
-                if (listView.SelectedIndex == 1)
-                {
-                    this.Frame.Navigate(typeof(Formatki.FormMojeDlugi));
-                }
-                if (listView.SelectedIndex == 2)
-                {
-                    this.Frame.Navigate(typeof(Formatki.FormPozyczoneKomus));
-                }*/
+
                 switch (listView.SelectedIndex)
                 {
                     case 0:
@@ -96,17 +81,12 @@ namespace WhoOwesWhoMoney
                         break;
                     case 3:
                         this.Frame.Navigate(typeof(Formatki.FormUstawienia));
-                        //GlobalVariables.EksportDoPliku();
-                        //GlobalVariables.ImportZPliku();
                         break;
                 }
             }
             else
             {
                 Debug.WriteLine("Nie wybrano obiektu");
-                //=---------------TEST------------------TEST--------------TEST-----------------
-                //this.Frame.Navigate(typeof(Formatki.FormWpisPodglad));
-                //=---------------TEST------------------TEST--------------TEST-----------------
             }
         }
 

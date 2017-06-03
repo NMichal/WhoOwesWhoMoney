@@ -31,8 +31,6 @@ namespace WhoOwesWhoMoney.Kontrolki
 
         internal void PokazAktywneWpisyOdKogos()
         {
-            ////Jako że pisze długi to potem trzeba będze filtrować po kolumnie dlugi / pozyczka w DB
-            //Na razie wyswietla wszyskie aktywne wpisy
             List<ObjWpis> aktywneWpisyOdKogos;
             aktywneWpisyOdKogos = Database.ListaAkrywnychWpisowOdKogos();
 
@@ -42,7 +40,6 @@ namespace WhoOwesWhoMoney.Kontrolki
                 string nazwa = wpis.Kto + " - " + wpis.ZaCo + " - " + wpis.Kwota;
                 item.Content = nazwa;
                 item.Tag = wpis;
-
 
                 listViewMojeDlugi.Items.Add(item);
             }
@@ -60,14 +57,8 @@ namespace WhoOwesWhoMoney.Kontrolki
                 item.Content = nazwa;
                 item.Tag = wpis;
 
-
                 listViewMojeDlugi.Items.Add(item);
             }
-        }
-
-        internal void Odswiez() /// Możliwe że ta funkcja bedzie nie potrzebna albo odswieżacnie po usubnięciu pozycji
-        {
-
         }
 
         private void listViewMojeDlugi_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
@@ -79,7 +70,6 @@ namespace WhoOwesWhoMoney.Kontrolki
                 {
                     if (this.DoubleTapped != null)
                         this.DoubleTapped(this, e);
-
                 }
             }
         }

@@ -26,10 +26,10 @@
         <TextBox x:Name="textBoxZaCo" HorizontalAlignment="Left" Margin="191,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
         <TextBox x:Name="textBoxMiejsce" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="191,122,0,0" Width="296" Height="27" Grid.ColumnSpan="2"/>
         <TextBox x:Name="textBoxKwota" HorizontalAlignment="Left" Margin="191,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Margin="191,234,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Margin="191,234,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
         <CalendarDatePicker x:Name="DataOddania" HorizontalAlignment="Left" Margin="191,47,0,0" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
         <CalendarDatePicker x:Name="Data" HorizontalAlignment="Left" Margin="191,10,0,0" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxKto" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Margin="191,85,0,0" Width="296" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxKto" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="191,85,0,0" Width="296" Grid.ColumnSpan="2"/>
         <CheckBox x:Name="checkBoxPozyczamKomus" Content="" HorizontalAlignment="Left" Margin="66,330,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,301,0,0" TextWrapping="Wrap" Text="Pożyczam komuś:" VerticalAlignment="Top" Width="176"/>
 

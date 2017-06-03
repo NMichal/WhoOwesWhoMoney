@@ -30,8 +30,7 @@ namespace WhoOwesWhoMoney.Formatki
         }
 
         private void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            //Dorobic przekazywanie obiektu i jego wyswietlanie
+        {            
             this.Frame.Navigate(typeof(Formatki.FormWpisPodglad), UCMojeDlugi2.WybranyWpis);
         }
     }

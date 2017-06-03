@@ -24,7 +24,7 @@ namespace WhoOwesWhoMoney.Formatki
     public sealed partial class FormWpisPodglad : Page
     {
 
-        private ObjWpis wpis; // pomyśleć czy potrzebne
+        private ObjWpis wpis;
 
         public FormWpisPodglad()
         {
@@ -40,7 +40,7 @@ namespace WhoOwesWhoMoney.Formatki
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             wpis = e.Parameter as ObjWpis;
-            UCDodajNowe2.WyswietlWpis(wpis); // gdy damy go do inita to wywoła się przed otrzymaniem obiektu i wpis == null
+            UCDodajNowe2.WyswietlWpis(wpis);
         }
 
         private async void buttonEdytuj_Click(object sender, RoutedEventArgs e)
@@ -96,11 +96,6 @@ namespace WhoOwesWhoMoney.Formatki
                     await dialog.ShowAsync();
                 }
             }
-        }
-
-        private void buttonZamknij_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

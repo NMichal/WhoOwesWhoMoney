@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace WhoOwesWhoMoney
 {
     class ObjWpis
-    {
-
-        //The Id property is marked as the Primary Key  
+    {      
         [SQLite.Net.Attributes.PrimaryKey, SQLite.Net.Attributes.AutoIncrement]
         public int ID { get; set; }
         public string Data { get; set; }
@@ -25,14 +23,7 @@ namespace WhoOwesWhoMoney
 
         public ObjWpis()
         {
-            //empty constructor  
-        }
-        public ObjWpis(string name, string phone_no)
-        {
-            //Name = name;
-            //PhoneNumber = phone_no;
-            //CreationDate = DateTime.Now.ToString();
+            //pusty konstruktor  
         }
     }
-
 }

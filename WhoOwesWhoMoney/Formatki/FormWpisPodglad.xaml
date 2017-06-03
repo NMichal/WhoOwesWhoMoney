@@ -16,7 +16,6 @@
         <WhoOwesWhoMoney:UCDodajNowe x:Name="UCDodajNowe2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Height="640" Margin="0,0,0,0"/>
         <Button x:Name="buttonEdytuj" Content="Edytuj" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,399,0,0" Width="222" Height="57" Click="buttonEdytuj_Click"/>
         <Button x:Name="buttonUsun" Content="Usuń" HorizontalAlignment="Left" Margin="261,399,-27,0" VerticalAlignment="Top" Width="222" Height="57" Click="buttonUsun_Click"/>
-        <Button x:Name="buttonZamknij" Content="Zamknij" HorizontalAlignment="Left" Margin="10,469,-83,0" VerticalAlignment="Top" Width="473" Height="72" Click="buttonZamknij_Click"/>
 
     </Grid>
 </Page>
